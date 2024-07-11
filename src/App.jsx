@@ -128,9 +128,10 @@ export default function App() {
               <button onClick={() => handleSelectTrip(t)}>Update</button>
               <button onClick={() => handleDeleteTrip(t.id)}>Delete</button>
             </div>
+            {selectedTrip === t.id && <div>Selected Trip: {t.title}</div>}
           </figcaption>
         </figure>
-        {selectedTrip === t.id && <div>Selected Trip: {t.title}</div>}
+        
       </div>
     );
   }
@@ -173,11 +174,11 @@ export default function App() {
                 <input type="text" name="description" value={formState.description} onChange={handleFormChange} required />
               </label>
               <label>
-                Start Trip (YYYY-MM-DD-HH-MM):
+                Start Trip (YYYY-MM-DD):
                 <input type="text" name="startTrip" value={formState.startTrip} onChange={handleFormChange} required />
               </label>
               <label>
-                End Trip (YYYY-MM-DD-HH-MM):
+                End Trip (YYYY-MM-DD):
                 <input type="text" name="endTrip" value={formState.endTrip} onChange={handleFormChange} required />
               </label>
               <button type="submit">{selectedTrip ? "Update Trip" : "Create Trip"}</button>
